@@ -5,7 +5,7 @@ import { icons,SIZES } from '../../../constants'
 import styles from './welcome.style'
 import { JobTabs } from '../..'
 
-const jobTypes = ["Full-time","Part-time","Contractor"];
+const jobTypes = ["Full-time","Part-time","Contractor","Internship"];
 
 const Welcome = () => {
   const router = useRouter();
@@ -46,9 +46,12 @@ const Welcome = () => {
                 router.push(`/search/${item}`)
               }}
             >
-              <Text>{item}</Text>
+              <Text style={styles.tabText(activeJobType,item)}>{item}</Text>
             </TouchableOpacity>
           )}
+          keyExtractor={item => item}
+          contentContainerStyle={{columnGap:SIZES.small}}
+          horizontal
         />
       </View>
 
